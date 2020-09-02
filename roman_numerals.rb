@@ -1,11 +1,12 @@
 class RomanNumerals
 
   def to_roman(num)
-    if num === 1
-      'I'
-    elsif num === 5
-      'V'
+    rom = Array.new(num, "I")
+    if rom.length === 5
+      return 'V'
+    else
+    rom.join('')
     end
   end
-  
+
 end
