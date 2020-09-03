@@ -1,6 +1,6 @@
 class RomanNumerals
 
-  ROMAN_NUMBERS = {
+  $roman_numbers = {
     1000 => "M",  
      900 => "CM",  
      500 => "D",  
@@ -10,23 +10,35 @@ class RomanNumerals
       50 => "L",  
       40 => "XL",  
       10 => "X",  
-        9 => "IX",  
+        9 => "IX", 
+        8 => "VIII",
+        7 => "VII",
+        6 => "VI",
         5 => "V",  
-        4 => "IV",  
-        1 => "I",  
+        4 => "IV",
+        3 => "III",
+        2 => "II", 
+        1 => "I", 
   }
 
+
+
   def to_roman(num)
-    rom = Array.new(num, "I")
-    case rom.length
-    when 5 
-      "V"
-    when 4
-      "IV"
-    when 1..3
+    number = num.digits.reverse
+    p number
+    rom = []
+   if num <= 9 
+     $roman_numbers[num] 
+   elsif number.count >= 2
+     if number[0] == 1 
+      rom << "X" + ("I" * number[1])
       rom.join('')
-    when 6..8
-      "V" + "I" * (rom.length - 5)
-    end
+     end
+   end
   end
+
+  def from_roman(rom)
+    $roman_numbers.key(rom)
+  end
+
 end

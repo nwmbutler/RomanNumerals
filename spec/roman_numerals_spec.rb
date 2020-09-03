@@ -27,5 +27,17 @@ describe RomanNumerals do
     it "can convert a roman numeral to and from an integer" do
         expect(roman.to_roman(7)).to eq('VII')
     end  
+
+    it "can convert a roman numeral to and from an integer" do
+        expect(roman.to_roman(11)).to eq('XI')
+    end  
+
+    it "can convert a roman numeral to and from an integer" do
+        expect(roman.to_roman(13)).to eq('XIII')
+    end  
+
+    it "can convert a roman numeral to an integer" do
+        expect(roman.from_roman("M")).to eq(1000)
+    end  
              
 end
