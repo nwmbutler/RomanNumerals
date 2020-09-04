@@ -24,30 +24,20 @@ class RomanNumerals
   def to_roman(num)
     length = number_length(num)
     case length
-    when 1
-      single_num(num)
-    when 2
-      double_num
-    when 3
-      triple_num
+    when 1; single_num(num)
+    when 2; double_num
+    when 3; triple_num
     end
   end
 
   def single_num(num)
     case num
-    when 0
-      ""
-    when 1..3
-      "I" * num
-      when 4
-        "IV"
-      when 5
-        "V"
-      when 6..8
-        num -= 5
-        "V" + ("I" * num)
-      when 9
-        "IX"
+    when 0; ""
+    when 1..3; "I" * num
+      when 4; "IV"
+      when 5; "V"
+      when 6..8; num -= 5; "V" + ("I" * num)
+      when 9; "IX"
     end
   end
 
@@ -66,35 +56,23 @@ class RomanNumerals
 
   def which_deci(num)
     case num
-    when 0
-      ""
-    when 1..3
-      "X" * num
-    when 4
-      "XL"
-    when 5..8
-      "L"
-    when 9
-      "XC"
+    when 0; ""
+    when 1..3; "X" * num
+    when 4; "XL"
+    when 5..8; "L"
+    when 9; "XC"
     end
   end
 
   def which_cent(num)
     case num
-    when 1..3
-      "C" * num
-    when 4
-      "CD"
-    when 5
-      "D" 
-    when 6
-      "DC"
-    when 7
-      "DCC"
-    when 8
-      "DCCC"
-    when 9
-      "CM"
+    when 1..3; "C" * num
+    when 4; "CD"
+    when 5; "D" 
+    when 6; "DC"
+    when 7; "DCC"
+    when 8; "DCCC"
+    when 9; "CM"
     end
   end
 
