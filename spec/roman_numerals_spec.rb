@@ -44,6 +44,18 @@ describe RomanNumerals do
     expect(roman.to_roman(38)).to eq('XXXVIII')
   end 
 
+  it "can convert a roman numeral to and from an integer" do
+    expect(roman.to_roman(47)).to eq('XLVII')
+  end 
+
+  it "can convert a roman numeral to and from an integer" do
+    expect(roman.to_roman(90)).to eq('XC')
+  end 
+
+  it "can convert a roman numeral to and from an integer" do
+    expect(roman.to_roman(98)).to eq('XCVIII')
+  end 
+
   it "can convert a roman numeral to an integer" do
     expect(roman.from_roman("M")).to eq(1000)
   end  
