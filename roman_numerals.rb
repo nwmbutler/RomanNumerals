@@ -36,11 +36,11 @@ class RomanNumerals
 
   def quad_num
     milli = milli($number)
+    cent = centi($number[1])
     deci = deci($number[2]) 
     single = single_num($number[-1])
-    milli + deci + single
+    milli + cent + deci + single
   end
-
 
   private
 
@@ -73,11 +73,10 @@ class RomanNumerals
   end
 
   def milli(num)
-    case num[1]
-      when 1; "M" + ("C" * num[1])
-      when 4; "MCD"
-      when 5..8; num = num[1] -= 5; "MD" + ("C" * num)
-      when 9; "MCM"
+    case num[0]
+      when 1; "M"
+      when 2; "MM"
+      when 3; "MMM"
     end
   end
 

@@ -84,4 +84,8 @@ describe RomanNumerals do
     expect(roman.to_roman(1775)).to eq('MDCCLXXV')
   end 
    
+  it "can convert a roman numeral to and from an integer" do
+    expect(roman.to_roman(2131)).to eq('MMCXXXI')
+  end 
+
 end
