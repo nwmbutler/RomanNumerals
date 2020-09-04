@@ -22,7 +22,7 @@ class RomanNumerals
   }
 
   def to_roman(num)
-    number_length(num) == 1 ? single_num(num) : double_num(num)
+    number_length(num) == 1 ? single_num : double_num
   end
 
   def number_length(num)
@@ -30,32 +30,38 @@ class RomanNumerals
     $number.length
   end
 
-  def single_num(num)
+  def single_num
     case $number[0]
     when 1..3
       "I" * $number[0]
-      when 4, contains_four
-      when 5, contains_five
+      when 4
+        "IV"
+      when 5
+        "V"
       when 6..9
         num = $number[0] - 5
         "V" + ("I" * num)
     end
   end
 
-  def double_num(num)
+  def double_num
+    deci = which_deci($number[0]) 
     case $number[-1]
-    when 4, contains_four
-    when 5, contains_five
-    when 1..3, "I" * $number[0]
+    when 4 
+      deci + "IV"
+    when 5 
+      deci + "V"
+    when 1..3
+      deci + ("I" * $number[-1]) 
+    when 6..9
+      num = $number[-1] - 5
+      p num
+      deci + "V" + ("I" * num)
     end
   end
 
-  def contains_four
-    "IV"
-  end
-
-  def contains_five
-    "V"
+  def which_deci(num)
+    "X" * num
   end
 
   def from_roman(rom)
