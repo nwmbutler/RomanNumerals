@@ -56,6 +56,22 @@ describe RomanNumerals do
     expect(roman.to_roman(98)).to eq('XCVIII')
   end 
 
+  it "can convert a roman numeral to and from an integer" do
+    expect(roman.to_roman(99)).to eq('XCIX')
+  end 
+
+  it "can convert a roman numeral to and from an integer" do
+    expect(roman.to_roman(298)).to eq('CCXCVIII')
+  end 
+
+  it "can convert a roman numeral to and from an integer" do
+    expect(roman.to_roman(503)).to eq('DIII')
+  end 
+
+  it "can convert a roman numeral to and from an integer" do
+    expect(roman.to_roman(704)).to eq('DCCIV')
+  end 
+
   it "can convert a roman numeral to an integer" do
     expect(roman.from_roman("M")).to eq(1000)
   end  

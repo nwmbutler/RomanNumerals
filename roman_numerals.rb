@@ -25,7 +25,7 @@ class RomanNumerals
     length = number_length(num)
     case length
     when 1
-      single_num
+      single_num(num)
     when 2
       double_num
     when 3
@@ -33,16 +33,18 @@ class RomanNumerals
     end
   end
 
-  def single_num
-    case $number[0]
+  def single_num(num)
+    case num
+    when 0
+      ""
     when 1..3
-      "I" * $number[0]
+      "I" * num
       when 4
         "IV"
       when 5
         "V"
       when 6..8
-        num = $number[0] - 5
+        num -= 5
         "V" + ("I" * num)
       when 9
         "IX"
@@ -51,26 +53,21 @@ class RomanNumerals
 
   def double_num
     deci = which_deci($number[0]) 
-    case $number[-1]
-    when 0
-      deci
-    when 1..3
-      deci + ("I" * $number[-1]) 
-    when 4 
-      deci + single_num
-    when 5 
-      deci + single_num
-    when 6..8
-      num = $number[-1] - 5
-      p num
-      deci + "V" + ("I" * num)
-    when 9
-      deci + single_num
-    end
+    single = single_num($number[-1])
+    deci + single
+  end
+
+  def triple_num
+    cent = which_cent($number[0]) 
+    deci = which_deci($number[1]) 
+    single = single_num($number[-1])
+    cent + deci + single
   end
 
   def which_deci(num)
     case num
+    when 0
+      ""
     when 1..3
       "X" * num
     when 4
@@ -79,6 +76,25 @@ class RomanNumerals
       "L"
     when 9
       "XC"
+    end
+  end
+
+  def which_cent(num)
+    case num
+    when 1..3
+      "C" * num
+    when 4
+      "CD"
+    when 5
+      "D" 
+    when 6
+      "DC"
+    when 7
+      "DCC"
+    when 8
+      "DCCC"
+    when 9
+      "CM"
     end
   end
 
